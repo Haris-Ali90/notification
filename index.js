@@ -1,7 +1,7 @@
 var app = require('express')();
 var http = require('http').createServer(app);
 
-app.set('port', (process.env.PORT || 54975));
+app.set('port', (process.env.PORT || 3000));
 
 app.get('/', function(request, response) {
     response.sendFile(__dirname + '/index.html');
@@ -17,8 +17,6 @@ app.get('/', function(request, response) {
 const io = require('socket.io')(http, {
     cors: {
         origin:'*',
-        // credentials: true,
-        // methods: ["GET", "POST"],
         transports: ["websocket", "polling"],
     },
     allowEIO3: true,
