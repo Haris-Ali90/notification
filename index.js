@@ -1,12 +1,5 @@
-// var app = require('express')();
-var http = require('http').Server(app);
-
-var express = require('express');
-http = require('http');
-var app = express();
-var server = http.createServer(app);
-// var io = require('socket.io').listen(server);
-
+var app = require('express')();
+var http = require('http').createServer(app);
 
 app.set('port', (process.env.PORT || 3000));
 
@@ -21,7 +14,7 @@ app.get('/', function(request, response) {
 // });
 
 
-const io = require('socket.io').listen(server, {
+const io = require('socket.io')(http, {
     cors: {
         origin: [
             "http://127.0.0.1:8000",
