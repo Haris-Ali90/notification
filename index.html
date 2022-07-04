@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Browser Notification</title>
+
+
+
+    <script src = "/socket.io/socket.io.js"></script>
+    <script>
+        var socket = io();
+        function sendNodeNotification() {
+            socket.emit('new_notification', {
+                hubId: 17,
+                message: 'Your order has been dropped',
+                title: 'toronto hub',
+            });
+        }
+    </script>
+</head>
+<body>
+
+<div id="showNotification"></div>
+
+<button type = "button" name = "button" onclick = "sendNodeNotification()">
+    Send Notification
+</button>
+</body>
+
+   <script>
+       socket.on('show_notification', function(data){
+          console.log(data)
+       });
+   </script>
+
+</html>
