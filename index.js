@@ -1,6 +1,6 @@
-const express = require("express");
-const app = express();
-const http = require("http").createServer(app);
+var app = require('express')();
+var http = require('http').Server(app);
+
 // const PORT = process.env.PORT || 3000;
 app.set('port', (process.env.PORT || 3000));
 
