@@ -1,6 +1,7 @@
-var app = require('express')();
-var http = require('http').createServer(app);
-
+const express = require("express");
+const app = express();
+const http = require("http").createServer(app);
+// const PORT = process.env.PORT || 3000;
 app.set('port', (process.env.PORT || 3000));
 
 app.get('/', function(request, response) {
@@ -13,8 +14,7 @@ app.get('/', function(request, response) {
 //     res.sendFile(__dirname + '/index.html');
 // });
 
-
-const io = require('socket.io')(http, {
+const io = require("socket.io")(http, {
     cors: {
         origin: [
             "http://127.0.0.1:8000",
@@ -26,6 +26,20 @@ const io = require('socket.io')(http, {
     },
     allowEIO3: true,
 });
+
+
+// const io = require('socket.io')(http, {
+//     cors: {
+//         origin: [
+//             "http://127.0.0.1:8000",
+//             "http://localhost:8000/last/mile/routes/list",
+//         ],
+//         credentials: true,
+//         methods: ["GET", "POST"],
+//         transports: ["websocket", "polling"],
+//     },
+//     allowEIO3: true,
+// });
 
 io.on('connection', function (socket) {
     socket.on( 'new_notification', function( data ) {
