@@ -16,10 +16,7 @@ app.get('/', function(request, response) {
 
 const io = require("socket.io")(http, {
     cors: {
-        origin: [
-            "http://127.0.0.1:8000",
-            "http://localhost:8000/last/mile/routes/list",
-        ],
+        origin:'*',
         credentials: true,
         methods: ["GET", "POST"],
         transports: ["websocket", "polling"],
