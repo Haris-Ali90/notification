@@ -4,7 +4,7 @@ var http = require('http').Server(app);
 app.set('port', (process.env.PORT || 3000));
 
 app.get('/', function(request, response) {
-    res.sendFile(__dirname + '/index.html');
+    response.sendFile(__dirname + '/index.html');
 }).listen(app.get('port'), function() {
     console.log('App is running, server is listening on port ', app.get('port'));
 });
