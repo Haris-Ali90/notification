@@ -4,12 +4,11 @@ var http = require('http').Server(app);
 app.set('port', (process.env.PORT || 3000));
 
 app.get('/', function(request, response) {
-    var result = 'App is running'
-    response.send(result);
-}).listen(app.get('port'), function() {
-    console.log('App is running, server is listening on port ', app.get('port'));
+    res.sendFile(__dirname + '/index.html');
 });
-
+// .listen(app.get('port'), function() {
+//     console.log('App is running, server is listening on port ', app.get('port'));
+// })
 // app.get('/', (req, res) => {
 //     res.sendFile(__dirname + '/index.html');
 // });
@@ -31,6 +30,6 @@ app.get('/', function(request, response) {
 //     });
 // });
 //
-// http.listen(3000, function() {
-//     console.log('listening on localhost:3000');
-// });
+http.listen(app.get('port'), function() {
+    console.log('listening on localhost:3000');
+});
