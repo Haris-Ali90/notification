@@ -17,7 +17,7 @@ app.get('/', function(request, response) {
 const io = require("socket.io")(http, {
     cors: {
         origin:'*',
-        credentials: true,
+        withCredentials: true,
         methods: ["GET", "POST"],
         transports: ["websocket", "polling"],
     },
