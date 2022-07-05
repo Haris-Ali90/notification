@@ -5,7 +5,7 @@ const http = require("http").createServer(app);
 app.set('port', (process.env.PORT || 3000));
 
 app.get('/', function(request, response) {
-    response.sendFile(__dirname + '/index.html');
+    // response.sendFile(__dirname + '/index.html');
 }).listen(app.get('port'), function() {
     console.log('App is running, server is listening on port ', app.get('port'));
 });
@@ -14,15 +14,15 @@ app.get('/', function(request, response) {
 //     res.sendFile(__dirname + '/index.html');
 // });
 
-// const io = require("socket.io")(http, {
-//     cors: {
-//         origin:'*',
-//         withCredentials: true,
-//         methods: ["GET", "POST"],
-//         transports: ["websocket", "polling"],
-//     },
-//     allowEIO3: true,
-// });
+const io = require("socket.io")(http, {
+    cors: {
+        origin:'*',
+        withCredentials: true,
+        methods: ["GET", "POST"],
+        transports: ["websocket", "polling"],
+    },
+    allowEIO3: true,
+});
 
 
 // const io = require('socket.io')(http, {
