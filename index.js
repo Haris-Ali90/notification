@@ -4,37 +4,18 @@ var http = require('http').Server(app);
 app.set('port', (process.env.PORT || 3000));
 
 app.get('/', function(request, response) {
-    // response.sendFile(__dirname + '/index.html');
-    console.log(response);
+    response.sendFile(__dirname + '/index.html');
 });
 
-// app.get('/', (req, res) => {
-//     res.sendFile(__dirname + '/index.html');
-// });
-
-// const io = require("socket.io")(http, {
-//     cors: {
-//         origin:'*',
-//         withCredentials: true,
-//         methods: ["GET", "POST"],
-//         transports: ["websocket", "polling"],
-//     },
-//     allowEIO3: true,
-// });
-
-
-// const io = require('socket.io')(http, {
-//     cors: {
-//         origin: [
-//             "http://127.0.0.1:8000",
-//             "http://localhost:8000/last/mile/routes/list",
-//         ],
-//         credentials: true,
-//         methods: ["GET", "POST"],
-//         transports: ["websocket", "polling"],
-//     },
-//     allowEIO3: true,
-// });
+const io = require("socket.io")(http, {
+    cors: {
+        origin:'*',
+        withCredentials: true,
+        methods: ["GET", "POST"],
+        transports: ["websocket", "polling"],
+    },
+    allowEIO3: true,
+});
 
 // io.on('connection', function (socket) {
 //     socket.on( 'new_notification', function( data ) {
@@ -46,10 +27,6 @@ app.get('/', function(request, response) {
 //     });
 // });
 //
-
-// http.listen(app.get('port'), function() {
-//     console.log('App is running, server is listening on port ', app.get('port'));
-// })
 
 http.listen(app.get('port'), function() {
     console.log('listening on localhost:3000');
