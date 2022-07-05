@@ -4,9 +4,9 @@ var http = require('http').Server(app);
 // const PORT = process.env.PORT || 3000;
 app.set('port', (process.env.PORT || 3000));
 
-app.get('/', function(request, response) {
-    response.sendFile(__dirname + '/index.html');
-});
+// app.get('/', function(request, response) {
+//     response.sendFile(__dirname + '/index.html');
+// });
 
 // app.get('/', (req, res) => {
 //     res.sendFile(__dirname + '/index.html');
