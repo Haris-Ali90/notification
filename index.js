@@ -1,6 +1,6 @@
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+const express = require("express");
+const app = express();
+const http = require("http").createServer(app);
 // const PORT = process.env.PORT || 3000;
 app.set('port', (process.env.PORT || 3000));
 
@@ -10,10 +10,6 @@ app.get('/', function(request, response) {
     console.log('App is running, server is listening on port ', app.get('port'));
 });
 
-http.listen(3000, '0.0.0.0', function () {
-    console.log('listening');
-});
-var socket = io.connect(':3000');
 // app.get('/', (req, res) => {
 //     res.sendFile(__dirname + '/index.html');
 // });
