@@ -17,16 +17,16 @@ const io = require("socket.io")(http, {
     allowEIO3: true,
 });
 
-// io.on('connection', function (socket) {
-//     socket.on( 'new_notification', function( data ) {
-//         io.sockets.emit( 'show_notification', {
-//             hubId: data.hubId,
-//             title: data.title,
-//             message: data.message,
-//         });
-//     });
-// });
-//
+io.on('connection', function (socket) {
+    socket.on( 'new_notification', function( data ) {
+        io.sockets.emit( 'show_notification', {
+            hubId: data.hubId,
+            title: data.title,
+            message: data.message,
+        });
+    });
+});
+
 
 http.listen(app.get('port'), function() {
     console.log('listening on localhost:3000');
