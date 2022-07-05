@@ -1,12 +1,11 @@
 var app = require('express')();
 var http = require('http').Server(app);
 
-// const PORT = process.env.PORT || 3000;
 app.set('port', (process.env.PORT || 3000));
 
-// app.get('/', function(request, response) {
-//     response.sendFile(__dirname + '/index.html');
-// });
+app.get('/', function(request, response) {
+    response.sendFile(__dirname + '/index.html');
+});
 
 // app.get('/', (req, res) => {
 //     res.sendFile(__dirname + '/index.html');
@@ -36,15 +35,15 @@ app.set('port', (process.env.PORT || 3000));
 //     allowEIO3: true,
 // });
 
-io.on('connection', function (socket) {
-    socket.on( 'new_notification', function( data ) {
-        io.sockets.emit( 'show_notification', {
-            hubId: data.hubId,
-            title: data.title,
-            message: data.message,
-        });
-    });
-});
+// io.on('connection', function (socket) {
+//     socket.on( 'new_notification', function( data ) {
+//         io.sockets.emit( 'show_notification', {
+//             hubId: data.hubId,
+//             title: data.title,
+//             message: data.message,
+//         });
+//     });
+// });
 //
 
 // http.listen(app.get('port'), function() {
